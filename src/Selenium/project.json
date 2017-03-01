@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true,
+	"copyToOutput": "./MicrosoftWebDriver.exe"
+  },
+
+  "dependencies": {
+    "Selenium.WebDriver": "3.2.0",
+    "NETStandard.Library": "1.6.1"
+  },
+
+  "frameworks": {
+    "net4.6": {
+
+    }
+  }
+}
