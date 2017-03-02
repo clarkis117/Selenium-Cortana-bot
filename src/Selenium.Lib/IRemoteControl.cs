@@ -1,30 +1,38 @@
-﻿using System;
+﻿using Selenium.Lib.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Selenium.Lib
 {
+	/// <summary>
+	/// blocked means browser or selenium cannot do it - I cannot do that Dave
+	/// failed means exception, unexpected result - Something has happened that I could not have anticpated
+	/// 
+	/// </summary>
 	public enum RequestState : byte { Success, Blocked, Failed };
 
 	public interface IRemoteControl
 	{
 		Task<bool> IsBrowserServiceUp();
 
-		Task<RequestState> OpenBrowser();
+		Task<ReqResult> OpenBrowser();
 
-		Task<RequestState> CloseBrowser();
+		Task<ReqResult> CloseBrowser();
 
-		Task<RequestState> Forward();
+		Task<ReqResult> Forward();
 
-		Task<RequestState> Back();
+		Task<ReqResult> Back();
 
-		Task<RequestState> Search(string term);
+		Task<ReqResult> Nav(string urlOrWebsiteName);
 
-		Task SelectResult(uint count);
+		Task<ReqResult> Search(string term);
 
-		Task SelectResult(string title);
+		Task<ReqResult> SelectResult(uint count);
 
-		Task SelectResult(string website, uint count = 1);
+		Task<ReqResult> SelectResult(string title);
+
+		Task<ReqResult> SelectResult(string website, uint count = 1);
 	}
 }
