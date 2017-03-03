@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 
-namespace Selenium.Rc.Api
+namespace Selenium.Bot.Api
 {
     public class Program
     {

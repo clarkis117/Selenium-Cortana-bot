@@ -19,19 +19,12 @@
 	</Command>
 
 	<Command Name="navTo">
-	  <Example> go to google </Example>
-	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> {NavAction} </ListenFor>
-	  <Feedback> going to {browser}</Feedback>
+	  <Example> navigate to google </Example>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> navigate to {wildcardArgs}</ListenFor>
+	  <Feedback> going to {wildcardArgs}</Feedback>
 	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
 	</Command>
-
-	<PhraseList Label="NavAction">
-	  <Item>go to</Item>
-	  <Item>navigate</Item>
-	  <Item>browse to</Item>
-	  <Item>switch to</Item>
-	</PhraseList>
-
+	
 	<PhraseList Label="browser">
 	  <Item>Edge</Item>
 	  <Item>Microsoft Edge</Item>
@@ -40,5 +33,8 @@
 	  <Item>Web</Item>
 	  <Item>Web Browser</Item>
 	</PhraseList>
+	<PhraseTopic Label="wildcardArgs" Scenario="Dictation">
+	  <!--<Subject>Wildcard</Subject>-->
+	</PhraseTopic>
   </CommandSet>
 </VoiceCommands>

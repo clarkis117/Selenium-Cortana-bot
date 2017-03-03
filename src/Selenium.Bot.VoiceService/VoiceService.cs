@@ -141,11 +141,11 @@ namespace Selenium.Bot.VoiceService
 						case "openBrowser":
 							var message = new VoiceCommandUserMessage();
 
-							message.DisplayMessage = "launching edge";
+							message.DisplayMessage = "opened edge";
 
-							message.SpokenMessage = "launching edge";
+							message.SpokenMessage = "opened edge";
 
-							await ShowProgressScreen("showing progress");
+							await ShowProgressScreen("launching Edge");
 
 							await control.OpenBrowser();
 
@@ -155,19 +155,21 @@ namespace Selenium.Bot.VoiceService
 
 							break;
 						case "closeBrowser":
-							var message = new VoiceCommandUserMessage();
+							{
+								var message2 = new VoiceCommandUserMessage();
 
-							message.DisplayMessage = "launching edge";
+								message2.DisplayMessage = "closed edge";
 
-							message.SpokenMessage = "launching edge";
+								message2.SpokenMessage = "closed edge";
 
-							await ShowProgressScreen("showing progress");
+								await ShowProgressScreen("closing edge");
 
-							await control.CloseBrowser();
+								await control.CloseBrowser();
 
-							var response = VoiceCommandResponse.CreateResponse(message);
+								var response2 = VoiceCommandResponse.CreateResponse(message2);
 
-							await voiceServiceConnection.ReportSuccessAsync(response);
+								await voiceServiceConnection.ReportSuccessAsync(response2);
+							}
 
 							break;
 

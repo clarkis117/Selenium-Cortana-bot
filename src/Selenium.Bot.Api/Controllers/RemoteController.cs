@@ -8,7 +8,7 @@ using Selenium.Bot.Lib.DTOs;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
-namespace Selenium.Rc.Api.Controllers
+namespace Selenium.Bot.Api.Controllers
 {
 	[Route("api/[controller]/[action]")]
 	public class RemoteController : Controller, IRemoteControl
@@ -41,6 +41,10 @@ namespace Selenium.Rc.Api.Controllers
 				_driver.Dispose();
 
 				_driverService.Dispose();
+
+				_driver = null;
+
+				_driverService = null;
 			}
 		}
 
