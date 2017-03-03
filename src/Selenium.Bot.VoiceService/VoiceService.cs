@@ -64,7 +64,7 @@ namespace Selenium.Bot.VoiceService
 		/// </summary>
 		DateTimeFormatInfo dateFormatInfo;
 
-		IRemoteControl control = new RemoteControl("http://localhost:500/api/remote/");
+		IRemoteControl control = new RemoteControl("http://localhost:5000/api/remote/");
 
 		/// <summary>
 		/// Background task entrypoint. Voice Commands using the <VoiceCommandService Target="...">
@@ -154,6 +154,23 @@ namespace Selenium.Bot.VoiceService
 							await voiceServiceConnection.ReportSuccessAsync(response);
 
 							break;
+						case "closeBrowser":
+							var message = new VoiceCommandUserMessage();
+
+							message.DisplayMessage = "launching edge";
+
+							message.SpokenMessage = "launching edge";
+
+							await ShowProgressScreen("showing progress");
+
+							await control.CloseBrowser();
+
+							var response = VoiceCommandResponse.CreateResponse(message);
+
+							await voiceServiceConnection.ReportSuccessAsync(response);
+
+							break;
+
 						default:
 							// As with app activation VCDs, we need to handle the possibility that
 							// an app update may remove a voice command that is still registered.
@@ -165,6 +182,8 @@ namespace Selenium.Bot.VoiceService
 				catch (Exception ex)
 				{
 					System.Diagnostics.Debug.WriteLine("Handling Voice Command failed " + ex.ToString());
+
+					await ShowProgressScreen("error, "+ex.Message);
 				}
 			}
 		}

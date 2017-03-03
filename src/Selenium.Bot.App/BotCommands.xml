@@ -18,6 +18,20 @@
 	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
 	</Command>
 
+	<Command Name="navTo">
+	  <Example> go to google </Example>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> {NavAction} </ListenFor>
+	  <Feedback> going to {browser}</Feedback>
+	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
+	</Command>
+
+	<PhraseList Label="NavAction">
+	  <Item>go to</Item>
+	  <Item>navigate</Item>
+	  <Item>browse to</Item>
+	  <Item>switch to</Item>
+	</PhraseList>
+
 	<PhraseList Label="browser">
 	  <Item>Edge</Item>
 	  <Item>Microsoft Edge</Item>
