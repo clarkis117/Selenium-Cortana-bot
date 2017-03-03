@@ -24,6 +24,8 @@ namespace Selenium
 			var element = driver.FindElement(By.Id("sb_form_q"));
 
 			element.SendKeys("What is a cortana skill? in C# \n\r");
+
+			driver.Url = "http://google.com";
 		}
 	}
 }

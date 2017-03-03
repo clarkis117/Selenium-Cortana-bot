@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="Selenium.Bot.App.CommandSet_en-us">
+	<AppName> Robot </AppName>
+	<Example> Open Edge </Example>
+
+	<Command Name="openBrowser">
+	  <Example> Open web browser </Example>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> open {browser}</ListenFor>
+	  <Feedback> Opening {browser}</Feedback>
+	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
+	</Command>
+
+	<Command Name="closeBrowser">
+	  <Example> Close web browser </Example>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> close {browser}</ListenFor>
+	  <Feedback> Closing {browser}</Feedback>
+	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
+	</Command>
+
+	<PhraseList Label="browser">
+	  <Item>Edge</Item>
+	  <Item>Microsoft Edge</Item>
+	  <Item>Internet Exploder</Item>
+	  <Item>Internet Exploder 2</Item>
+	  <Item>Web</Item>
+	  <Item>Web Browser</Item>
+	</PhraseList>
+  </CommandSet>
+</VoiceCommands>
