@@ -1,18 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3C831706-D8BB-4B3C-9A9F-7152B289BA90}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{86371E97-A5DA-40C2-AFA9-DE47CB3279E6}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Selenium", "src\Selenium\Selenium.xproj", "{256FEB86-A547-48BD-86A1-9211078EDD83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium", "src\Selenium\Selenium.csproj", "{256FEB86-A547-48BD-86A1-9211078EDD83}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Selenium.Bot.Api", "src\Selenium.Bot.Api\Selenium.Bot.Api.xproj", "{268E1D15-FFD5-4BFC-A524-0143047D5921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium.Bot.Api", "src\Selenium.Bot.Api\Selenium.Bot.Api.csproj", "{268E1D15-FFD5-4BFC-A524-0143047D5921}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Bot.App", "src\Selenium.Bot.App\Selenium.Bot.App.csproj", "{CA2F0E50-3153-48FE-B709-F46DED885645}"
 EndProject
