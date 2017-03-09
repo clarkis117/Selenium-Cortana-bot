@@ -173,6 +173,12 @@ namespace Selenium.Bot.VoiceService
 
 							break;
 
+						case "navTo":
+							{
+								await ShowProgressScreen(voiceCommand.Properties["wildcardArgs"][0]);
+								int a = 1;
+							}
+							break;
 						default:
 							// As with app activation VCDs, we need to handle the possibility that
 							// an app update may remove a voice command that is still registered.

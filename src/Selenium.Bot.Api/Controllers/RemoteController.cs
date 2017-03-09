@@ -7,6 +7,7 @@ using Selenium.Bot;
 using Selenium.Bot.Lib.DTOs;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
+using System.Text.RegularExpressions;
 
 namespace Selenium.Bot.Api.Controllers
 {
@@ -111,11 +112,31 @@ namespace Selenium.Bot.Api.Controllers
 			return ReqResult.Success();
 		}
 
+		const string http = "http";
+		const string https = "https";
+
+		/// <summary>
+		/// google.com
+		//	www.google.com
+		///	http://www.google.com
+		///https://www.google.com
+		/// </summary>
+		/// <param name="urlOrWebsiteName"></param>
+		/// <returns></returns>
 		[HttpPost]
 		public async Task<ReqResult> Nav(Nav urlOrWebsiteName)
 		{
+			var regex = new Regex(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$");
+
+			if(!regex.IsMatch(urlOrWebsiteName.urlOrName))
+			{
+				//handle malformed here
+			}
+
+			Uri url = new Uri(urlOrWebsiteName.urlOrName);
+
 			//todo url or name logic
-			_driver.Navigate().GoToUrl(urlOrWebsiteName.urlOrName);
+			_driver.Navigate().GoToUrl(url.ToString());
 
 			return ReqResult.Success();
 		}

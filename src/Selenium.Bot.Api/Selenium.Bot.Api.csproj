@@ -36,4 +36,8 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Selenium.Bot.Lib\Selenium.Bot.Lib.csproj" />
+  </ItemGroup>
+
 </Project>

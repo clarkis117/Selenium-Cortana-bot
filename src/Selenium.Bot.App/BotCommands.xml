@@ -24,6 +24,14 @@
 	  <Feedback> going to {wildcardArgs}</Feedback>
 	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
 	</Command>
+
+	<Command Name="browserSearch">
+	  <Example> search for xyz </Example>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> search for {wildcardArgs}</ListenFor>
+	  <ListenFor RequireAppName="BeforeOrAfterPhrase"> search {wildcardArgs}</ListenFor>
+	  <Feedback> searching for {wildcardArgs}</Feedback>
+	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
+	</Command>
 	
 	<PhraseList Label="browser">
 	  <Item>Edge</Item>
