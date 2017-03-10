@@ -119,8 +119,8 @@
     <Content Include="Images\GreyTile.scale-400.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Selenium.Bot.Lib\Selenium.Bot.Lib.csproj">
-      <Project>{750c668e-4d7e-4a01-884e-a625df41ed3c}</Project>
+    <ProjectReference Include="..\..\Selenium.Bot.Lib2\Selenium.Bot.Lib.csproj">
+      <Project>{d58073cc-77fc-47a2-b190-58940cc30302}</Project>
       <Name>Selenium.Bot.Lib</Name>
     </ProjectReference>
   </ItemGroup>

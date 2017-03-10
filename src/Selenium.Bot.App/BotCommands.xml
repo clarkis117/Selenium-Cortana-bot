@@ -32,6 +32,16 @@
 	  <Feedback> searching for {wildcardArgs}</Feedback>
 	  <VoiceCommandService Target="SeleniumBotVoiceService"/>
 	</Command>
+
+	<PharseList Label="seleniumActions">
+	  <Item>Clear</Item>
+	  <Item>Click</Item>
+	  <Item>Send Keys</Item>
+	  <Item>Find Element</Item>
+	  <Item>Find Elements</Item>
+	  <Item>Get Text</Item>
+		
+	</PharseList>
 	
 	<PhraseList Label="browser">
 	  <Item>Edge</Item>

@@ -139,28 +139,33 @@ namespace Selenium.Bot.VoiceService
 							break;
 						*/
 						case "openBrowser":
-							var message = new VoiceCommandUserMessage();
+							{
+								var message = new VoiceCommandUserMessage()
+								{
+									DisplayMessage = "opened edge",
 
-							message.DisplayMessage = "opened edge";
+									SpokenMessage = "opened edge"
+								};
 
-							message.SpokenMessage = "opened edge";
+								await ShowProgressScreen("launching Edge");
 
-							await ShowProgressScreen("launching Edge");
+								await control.OpenBrowser();
 
-							await control.OpenBrowser();
+								var response = VoiceCommandResponse.CreateResponse(message);
 
-							var response = VoiceCommandResponse.CreateResponse(message);
-
-							await voiceServiceConnection.ReportSuccessAsync(response);
+								await voiceServiceConnection.ReportSuccessAsync(response);
+							}
 
 							break;
+
 						case "closeBrowser":
 							{
-								var message2 = new VoiceCommandUserMessage();
+								var message2 = new VoiceCommandUserMessage()
+								{
+									DisplayMessage = "closed edge",
 
-								message2.DisplayMessage = "closed edge";
-
-								message2.SpokenMessage = "closed edge";
+									SpokenMessage = "closed edge"
+								};
 
 								await ShowProgressScreen("closing edge");
 
@@ -175,10 +180,32 @@ namespace Selenium.Bot.VoiceService
 
 						case "navTo":
 							{
-								await ShowProgressScreen(voiceCommand.Properties["wildcardArgs"][0]);
-								int a = 1;
+								var arg = voiceCommand.Properties["wildcardArgs"][0];
+
+								if(arg == null)
+								{
+									await ShowProgressScreen($"arg can't be null");
+									break;
+								}
+
+								await ShowProgressScreen($"navigating to {arg}");
+
+								await control.Nav(new Lib.DTOs.Nav() { urlOrName = arg });
+
+								var message2 = new VoiceCommandUserMessage()
+								{
+									DisplayMessage = "navigated",
+
+									SpokenMessage = "navigated"
+								};
+
+								var response2 = VoiceCommandResponse.CreateResponse(message2);
+
+								await voiceServiceConnection.ReportSuccessAsync(response2);
 							}
+
 							break;
+
 						default:
 							// As with app activation VCDs, we need to handle the possibility that
 							// an app update may remove a voice command that is still registered.

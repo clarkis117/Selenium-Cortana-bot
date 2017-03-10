@@ -30,7 +30,7 @@ namespace Selenium.Bot.Api.Controllers
 		private static void Setup()
 		{
 			_driverService = EdgeDriverService.CreateDefaultService(driverLocation);
-
+		
 			_driver = new EdgeDriver(_driverService);
 		}
 
@@ -73,6 +73,8 @@ namespace Selenium.Bot.Api.Controllers
 				{
 					Setup();
 				}
+
+				_driver.Manage().Window.Maximize();
 
 				_driver.Url = bing;
 
@@ -128,21 +130,36 @@ namespace Selenium.Bot.Api.Controllers
 		{
 			var regex = new Regex(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$");
 
+			var s = _driver.FindElement();
+
+			_driver.
+
+			s.
+
 			if(!regex.IsMatch(urlOrWebsiteName.urlOrName))
 			{
 				//handle malformed here
 			}
 
-			Uri url = new Uri(urlOrWebsiteName.urlOrName);
+			//Uri url = new Uri(urlOrWebsiteName.urlOrName);
 
+			//Uri.CheckHostName("") == UriHostNameType.
+
+			//UriBuilder build = new UriBuilder(urlOrWebsiteName.urlOrName);
+
+			//if(build.Scheme == null)
+				//build.Scheme = http;
+ 
 			//todo url or name logic
-			_driver.Navigate().GoToUrl(url.ToString());
+
+
+			_driver.Url = $"?{urlOrWebsiteName.urlOrName}";
 
 			return ReqResult.Success();
 		}
 
 		[HttpPost]
-		public async Task<ReqResult> Search(Search query)
+		public async Task<ReqResult> Search(Bot.Lib.DTOs.Search query)
 		{
 			//check if I'm on bing
 			//if not nav to bing
